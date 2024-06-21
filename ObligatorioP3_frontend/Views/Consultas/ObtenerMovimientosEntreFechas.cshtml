@@ -1,0 +1,50 @@
+﻿@model ObligatorioP3_frontend.Models.MovimientoModel
+@{
+    ViewData["Title"] = "Obtener Movimientos Por Fecha";
+}
+
+<h1 class="text-center">Obtener Movimientos Por Fecha</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ObtenerMovimientosEntreFechasBusqueda">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>            
+            <div class="form-group">
+                <label for="fechaInicial">Ingrese la primer fecha</label>
+                <input class="datefield" data-val="true" data-val-required="La fecha es requerida" id="fechaInicial" name="fechaInicial" type="date" required/>
+            </div>
+            <div class="form-group">
+                <label for="fechaFinal">Ingrese la primer fecha</label>
+                <input class="datefield" data-val="true" data-val-required="La fecha es requerida" id="fechaFinal" name="fechaFinal" type="date" required/>
+            </div>
+            <div class="form-group">
+                <label for="paginas" class="control-label">Ingrese cantidad de paginas</label>
+                <input id="paginas" name="paginas" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Buscar Movimiento" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-controller="Consultas" class="btn btn-danger" asp-action="Index">Volver atras</a>
+</div>
+@if (ViewBag.mensaje != null)
+{
+    <div class="text-center alert-success p-3">
+        @ViewBag.mensaje
+    </div>
+}
+@if (ViewBag.mensajeError != null)
+{
+    <div class="text-center alert-danger p-3">
+        @ViewBag.mensajeError
+    </div>
+}
+
+
+
+
+
+
+
